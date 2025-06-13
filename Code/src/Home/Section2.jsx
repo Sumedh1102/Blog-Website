@@ -64,20 +64,22 @@ const Section2 = () => {
   ];
 
   return (
-    <div className="grid grid-cols-[75%_25%] min-h-screen bg-white">
-      <div className="pl-16">
-        <div className="max-w-5xl">
-          <h1 className="text-5xl font-bold font-inter text-gray-900 mb-8">Latest articles</h1>
+       <div className="flex flex-col lg:grid lg:grid-cols-[75%_25%] min-h-screen bg-white">
+      <div className="px-4 sm:px-6 md:px-8 lg:pl-16">
+        <div className="max-w-5xl mx-auto lg:mx-0">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-inter text-gray-900 my-6 lg:mb-8">
+            Latest articles
+          </h1>
 
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 gap-6 lg:gap-8 mb-8">
             {articles.map((article) => (
               <article
                 key={article.id}
                 onClick={() => handleClick(article.title)}
-                className="cursor-pointer grid grid-cols-[300px_1fr] gap-6 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow min-h-[280px]"
+                className="cursor-pointer flex flex-col sm:grid sm:grid-cols-[1fr_1.5fr] md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr] gap-4 sm:gap-6 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
                 {/* Article Image */}
-                <div className="relative overflow-hidden rounded-2xl w-[300px] h-[280px] p-4">
+                <div className="relative overflow-hidden rounded-2xl w-full sm:w-[250px] md:w-[250px] lg:w-[300px] h-[200px] sm:h-[280px] flex-shrink-0 p-4">
                   <img
                     src={article.image || "/placeholder.svg"}
                     alt={article.title}
@@ -86,27 +88,25 @@ const Section2 = () => {
                 </div>
 
                 {/* Article Content */}
-                <div className="p-6 flex flex-col gap-4 justify-start">
-                  <span
-                    className={`inline-block px-3 py-1 font-nunito rounded-full text-sm text-gray-500 font-semibold uppercase tracking-wider `}
-                  >
+                <div className="p-4 sm:p-6 flex flex-col gap-2 sm:gap-4 justify-start">
+                  <span className="inline-block px-3 py-1 font-nunito rounded-full text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wider">
                     {article.category}
                   </span>
 
-                  <h2 className="text-2xl font-semibold font-inter text-gray-900 leading-tight hover:text-blue-600 transition-colors">
+                  <h2 className="text-xl sm:text-2xl font-semibold font-inter text-gray-900 leading-tight hover:text-blue-600 transition-colors">
                     {article.title}
                   </h2>
 
-                  <p className="text-gray-600 leading-relaxed">{article.description}</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{article.description}</p>
 
-                  <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 mt-auto">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full grid place-items-center">
-                      <User className="w-4 h-4 text-gray-500" />
+                  <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2 sm:gap-3 mt-auto">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-200 rounded-full grid place-items-center">
+                      <User className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500" />
                     </div>
-                    <span className="text-sm font-medium text-gray-900">{article.author}</span>
-                    <div className="grid grid-cols-[auto_auto] items-center gap-2 text-gray-500">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm">{article.date}</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-900">{article.author}</span>
+                    <div className="grid grid-cols-[auto_auto] items-center gap-1 sm:gap-2 text-gray-500">
+                      <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span className="text-xs sm:text-sm">{article.date}</span>
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,9 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-      <Slidecompo />
+      <div className="order-first lg:order-none">
+        <Slidecompo />
+      </div>
     </div>
   );
 };

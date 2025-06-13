@@ -24,7 +24,7 @@ const popularArticles = [
 
 const Slidecompo = () => {
   return (
-   <div className="w-auto bg-white p-6 grid grid-cols-1 gap-8 h-screen sticky top-0 overflow-y-auto">
+   <div className="hidden sm:grid w-auto bg-white p-6 grid-cols-1 gap-8 h-screen sticky top-0 overflow-y-auto ">
       {/* Brand Header */}
       <div className="grid grid-cols-[auto_1fr] items-center gap-3">
         <Feather className="h-8 w-8 text-gray-700" />

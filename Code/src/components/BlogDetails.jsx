@@ -345,23 +345,23 @@ const BlogDetails = () => {
 
   return (
     <>
-<div className="grid grid-cols-[25%_75%] min-h-screen bg-gray-50 gap-10">
-  {/* Sidebar (optional – add content here or remove if unused) */}
-  <aside className="bg-white p-0">
-    <Slidecompo/>
-  </aside>
+<div className="flex flex-col sm:grid sm:grid-cols-1 md:grid-cols-[30%_70%] lg:grid-cols-[25%_75%] min-h-screen bg-gray-50">
+      {/* Sidebar - hidden on mobile, visible on sm and up */}
+      <aside className="hidden sm:block bg-white p-0 border-r border-gray-100">
+        <Slidecompo/>
+      </aside>
 
-  {/* Main Blog Content */}
-  <section className="flex flex-col py-10 px-4 md:px-12 mt-10 md:mt-0 max-w-5xl">
-    <h1 className="text-3xl md:text-4xl font-bold mb-6 text-[#333] leading-snug tracking-wide text-center md:text-left">
-      {decodeURIComponent(blogTitle)}
-    </h1>
+      {/* Main Blog Content - full width on mobile, adjusted on larger screens */}
+      <section className="flex flex-col py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-8 lg:px-12 mt-4 sm:mt-6 md:mt-0 max-w-full md:max-w-5xl">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-[#333] leading-snug tracking-wide text-center md:text-left">
+          {decodeURIComponent(blogTitle || "")}
+        </h1>
 
-    <div className="leading-relaxed text-gray-700 text-[18px] whitespace-pre-line">
-      {blog?.content}
+        <div className="leading-relaxed text-gray-700 text-base sm:text-lg md:text-[18px] whitespace-pre-line">
+          {blog?.content}
+        </div>
+      </section>
     </div>
-  </section>
-</div>
 <hr className="border-gray-100"/>
   <Section4/>
     </>

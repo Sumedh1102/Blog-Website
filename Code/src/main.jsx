@@ -10,6 +10,7 @@ import Page1 from '../src/BlogContent/Page1.jsx'
 
 
 
+
 import './index.css'
 import App from './App.jsx'
 import {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     children:[
       {
        path : "/",
-       element : < Home />
+       element : < Home />,
       },
       {
       path : "/blogs",
